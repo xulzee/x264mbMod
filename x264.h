@@ -294,6 +294,9 @@ typedef struct x264_param_t
     int         i_level_idc;
     int         i_frame_total; /* number of frames to encode if known, else 0 */
 
+    /* Non-uniform application of QP */
+    int         center_x;
+    int         center_y;
     /* NAL HRD
      * Uses Buffering and Picture Timing SEIs to signal HRD
      * The HRD in H.264 was not designed with VFR in mind.

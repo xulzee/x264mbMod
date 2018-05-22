@@ -55,7 +55,9 @@ void x264_param_default( x264_param_t *param )
     param->i_lookahead_threads = X264_THREADS_AUTO;
     param->b_deterministic = 1;
     param->i_sync_lookahead = X264_SYNC_LOOKAHEAD_AUTO;
-
+    /* Non-uniform application of QP */
+    param->center_x = 119;
+    param->center_y = 59;
     /* Video properties */
     param->i_csp           = X264_CHROMA_FORMAT ? X264_CHROMA_FORMAT : X264_CSP_I420;
     param->i_width         = 0;
@@ -1051,6 +1053,17 @@ int x264_param_parse( x264_param_t *p, const char *name, const char *value )
         p->psz_clbin_file = strdup( value );
     OPT("opencl-device")
         p->i_opencl_device = atoi( value );
+    /* Non-uniform application of QP */
+    OPT("center-x")
+    {
+        p->center_x = atoi( value );
+        printf("\np->center_x %d\n", p->center_x);
+    }
+    OPT("center-y")
+    {
+        p->center_y = atoi( value );
+        printf("\np->center_y %d\n", p->center_y);
+    }
     else
     {
         b_error = 1;

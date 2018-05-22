@@ -984,12 +984,16 @@ typedef enum
         OPT_DTS_COMPRESSION,
         OPT_OUTPUT_CSP,
         OPT_INPUT_RANGE,
-        OPT_RANGE
+        OPT_RANGE,
+        OPT_CENTER_X,
+        OPT_CENTER_Y
 } OptionsOPT;
 
 static char short_options[] = "8A:B:b:f:hI:i:m:o:p:q:r:t:Vvw";
 static struct option long_options[] =
 {
+        { "center-x",    required_argument, NULL, OPT_CENTER_X },
+        { "center-y",    required_argument, NULL, OPT_CENTER_Y },
         { "help",              no_argument, NULL, 'h' },
         { "longhelp",          no_argument, NULL, OPT_LONGHELP },
         { "fullhelp",          no_argument, NULL, OPT_FULLHELP },
@@ -1376,7 +1380,7 @@ static int parse( int argc, char **argv, x264_param_t *param, cli_opt_t *opt )
 
         x264_param_default( &defaults );
         cli_log_level = defaults.i_log_level;
-
+        
         memset( &input_opt, 0, sizeof(cli_input_opt_t) );
         memset( &output_opt, 0, sizeof(cli_output_opt_t) );
         input_opt.bit_depth = 8;
@@ -1563,7 +1567,6 @@ generic_option:
                                                 return -1;
                                         }
                                 }
-
                                 b_error |= x264_param_parse( param, long_options[long_options_index].name, optarg );
                         }
                 }
