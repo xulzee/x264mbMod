@@ -3049,18 +3049,18 @@ void x264_macroblock_analyse( x264_t *h )
 
         int mb_x_index = h->mb.i_mb_xy % 240;
         int mb_y_index = h->mb.i_mb_xy / 240;
-/*
         // one region 
-        if (mb_x_index >= 82 && mb_x_index <156)
+        if (mb_x_index >= (h->param.center_x - 37) && mb_x_index < (h->param.center_x + 37) \
+                && mb_y_index >= (h->param.center_y - 37) && mb_y_index < (h->param.center_y + 37))
         {
                 h->mb.i_qp = 22;
         }
         else
         {
-                h->mb.i_qp = 47;
+                h->mb.i_qp = 51;
         }
         // end
-*/
+
 /*
         // three regions
         if (mb_x_index >= 114 && mb_x_index < 126 && mb_y_index >= 54 && mb_y_index < 66)
@@ -3080,7 +3080,7 @@ void x264_macroblock_analyse( x264_t *h )
                 h->mb.i_qp = 47;
         }
 */
-
+/*
         // five regions
         if (mb_x_index >= 114 && mb_x_index < 126 && mb_y_index >= 54 && mb_y_index < 66)
         {
@@ -3107,7 +3107,7 @@ void x264_macroblock_analyse( x264_t *h )
                 h->mb.i_qp = 47;
         }
 
-
+*/
 /*
         // seven regions
         if (mb_x_index >= 114 && mb_x_index < 126 && mb_y_index >= 54 && mb_y_index < 66)
