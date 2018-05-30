@@ -3049,9 +3049,9 @@ void x264_macroblock_analyse( x264_t *h )
 
         int mb_x_index = h->mb.i_mb_xy % 240;
         int mb_y_index = h->mb.i_mb_xy / 240;
-        // one region 
-        if (mb_x_index >= (h->param.center_x - 37) && mb_x_index < (h->param.center_x + 37) \
-                && mb_y_index >= (h->param.center_y - 37) && mb_y_index < (h->param.center_y + 37))
+        // one region
+        if (mb_x_index >= (h->param.center_x - 65) && mb_x_index < (h->param.center_x + 65) \
+                && mb_y_index >= (h->param.center_y - 35) && mb_y_index < (h->param.center_y + 35))
         {
                 h->mb.i_qp = 22;
         }

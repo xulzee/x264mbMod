@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "signal.h": "c"
-    }
+    },
+    "python.pythonPath": "/home/xulzee/anaconda3/bin/python"
 }
